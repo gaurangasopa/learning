@@ -6,8 +6,11 @@ def clear():
 def display_board(board):
     clear()
     print(board[0] + '|' + board[1] + '|' + board[2])
+    print('-----')
     print(board[3] + '|' + board[4] + '|' + board[5])
+    print('-----')
     print(board[6] + '|' + board[7] + '|' + board[8])
+    print('-----')
 
 def win_check(board):
     return ((board[6] ==  board[6] ==  board[7] == 'X' ) or
