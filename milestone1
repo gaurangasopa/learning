@@ -10,21 +10,23 @@ def display_board(board):
     print(board[6] + '|' + board[7] + '|' + board[8])
 
 def win_check(board):
-    return ((board[7] ==  board[8] ==  board[9] ) or
-    (board[4] ==  board[5] ==  board[6] ) or
-    (board[1] ==  board[2] ==  board[3] ) or
+    return ((board[6] ==  board[6] ==  board[7] ) or
+    (board[3] ==  board[4] ==  board[5] ) or
+    (board[0] ==  board[1] ==  board[2] ) or
+    (board[6] ==  board[3] ==  board[0] ) or
     (board[7] ==  board[4] ==  board[1] ) or
     (board[8] ==  board[5] ==  board[2] ) or
-    (board[9] ==  board[6] ==  board[3] ) or
-    (board[7] ==  board[5] ==  board[3] ) or
-    (board[9] ==  board[5] ==  board[1] ))
+    (board[6] ==  board[4] ==  board[2] ) or
+    (board[8] ==  board[4] ==  board[0] ))
 
-def gameplay(board):
-    for i in range[2,11]:
+def gameplay(board,number):
+    for i in range(2,11):
         if i%2==0:
-            board[i]=input("Player 1 please play your move! choose 1-9")
+            number=input("Enter where you want to place your mark! 1-9")
+            board[number-1]=player1marker
         else:
-            board[i] = input("Player 2 please play your move! choose 1-9")
+            number = input("Enter where you want to place your mark! 1-9")
+            board[number - 1] = player2marker
 
 def startgame():
     startcue = input("Do you want to start the game! Yes or No ")
@@ -40,12 +42,12 @@ def startgame():
 
 def play(board):
     startgame()
-    gameplay(board)
-    display_board(board)
-    win_check(board)
+    gameplay(board,number)
+
 
 player1marker=''
 player2marker=''
-board=[0,0,0,0,0,0,0,0,0]
+board=['','','','','','','','','']
+number = int(0)
 
 play(board)
