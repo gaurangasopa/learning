@@ -22,11 +22,13 @@ def win_check(board):
 def gameplay(board,number):
     for i in range(2,11):
         if i%2==0:
-            number=input("Enter where you want to place your mark! 1-9")
+            number=int(input("Enter where you want to place your mark! 1-9"))
             board[number-1]=player1marker
+            display_board(board)
         else:
-            number = input("Enter where you want to place your mark! 1-9")
+            number = int(input("Enter where you want to place your mark! 1-9"))
             board[number - 1] = player2marker
+            display_board(board)
 
 def startgame():
     startcue = input("Do you want to start the game! Yes or No ")
