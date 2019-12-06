@@ -1,0 +1,51 @@
+import os
+
+def clear():
+    os.system( 'cls' )
+
+def display_board(board):
+    clear()
+    print(board[0] + '|' + board[1] + '|' + board[2])
+    print(board[3] + '|' + board[4] + '|' + board[5])
+    print(board[6] + '|' + board[7] + '|' + board[8])
+
+def win_check(board):
+    return ((board[7] ==  board[8] ==  board[9] ) or
+    (board[4] ==  board[5] ==  board[6] ) or
+    (board[1] ==  board[2] ==  board[3] ) or
+    (board[7] ==  board[4] ==  board[1] ) or
+    (board[8] ==  board[5] ==  board[2] ) or
+    (board[9] ==  board[6] ==  board[3] ) or
+    (board[7] ==  board[5] ==  board[3] ) or
+    (board[9] ==  board[5] ==  board[1] ))
+
+def gameplay(board):
+    for i in range[2,11]:
+        if i%2==0:
+            board[i]=input("Player 1 please play your move! choose 1-9")
+        else:
+            board[i] = input("Player 2 please play your move! choose 1-9")
+
+def startgame():
+    startcue = input("Do you want to start the game! Yes or No ")
+    if startcue.lower() == "yes":
+        player1marker = input("Does Player 1 Want to be X or O! Enter X or O ")
+        if player1marker.lower() == 'x':
+            player2marker = "O"
+        else:
+            player2marker = "X"
+        print("All the best")
+    else:
+        print("Thank you for playing")
+
+def play(board):
+    startgame()
+    gameplay(board)
+    display_board(board)
+    win_check(board)
+
+player1marker=''
+player2marker=''
+board=[0,0,0,0,0,0,0,0,0]
+
+play(board)
